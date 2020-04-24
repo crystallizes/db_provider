@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="favicon.ico" rel="shortcut icon" />
+    <script type="text/javascript" th:src="@{/jquery-3.5.0.js}"></script>
+
+    <script type="text/javascript" th:inline="javascript">
+        $(document).ready(function(){
+            var ctx = "/db_provider/";
+            $("#gets").click(function(){
+                $.ajax({
+                    url: ctx+ "/rest/apiv1",
+                    contentType: 'application/json; charset=utf-8',
+                    type: "GET",
+                    success: function (result) {
+                        alert("操作成功!");
+                    }
+                });
+            });
+            $("#getinfo").click(function(){
+                var datalist = {
+                    "orderId": "order-info",
+                    "commant": "commant-info"
+                };
+                $.ajax({
+                    url: ctx+ "/rest/apiv1/infos",
+                    contentType: 'application/json; charset=utf-8',
+                    crossDomain: true,
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    type: "GET",
+                    data: datalist, //JSON.stringify(datalist),
+                    success: function (result) {
+                        alert("操作成功!");
+                    }
+                });
+            });
+            $("#posts").click(function(){
+                var datalist = {
+                    "orderId": "order-data",
+                    "commant": "commant-data"
+                };
+                $.ajax({
+                    url: ctx+ "/rest/apiv1",
+                    contentType: 'application/json; charset=utf-8',
+                    crossDomain: true,
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    type: "POST",
+                    data: JSON.stringify(datalist),
+                    success: function (result) {
+                        alert("操作成功!");
+                    }
+                });
+            });
+            $("#puts").click(function(){
+                var datalist = {
+                    "orderId": "order-data",
+                    "commant": "commant-data"
+                };
+                $.ajax({
+                    url: ctx+ "/rest/apiv1",
+                    contentType: 'application/json; charset=utf-8',
+                    crossDomain: true,
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    type: "PUT",
+                    data: JSON.stringify(datalist),
+                    success: function (result) {
+                        alert("操作成功!");
+                    }
+                });
+            });
+            $("#deletes").click(function(){
+                var datalist = {
+                    "orderId": "order-data",
+                    "commant": "commant-data"
+                };
+                $.ajax({
+                    url: ctx+ "/rest/apiv1",
+                    contentType: 'application/json; charset=utf-8',
+                    crossDomain: true,
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    type: "DELETE",
+                    data: JSON.stringify(datalist),
+                    success: function (result) {
+                        alert("操作成功!");
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>333 </h1>
+    <h1>hot deploy one ! </h1>
+    <h2>Hello World!</h2>
+    <input id="gets" type="button" value="gets" />&nbsp;&nbsp;&nbsp;
+    <input id="getinfo" type="button" value="gets_info" /><br/><br/>
+    <input id="puts" type="button" value="puts" /><br/><br/>
+    <input id="posts" type="button" value="posts" /><br/><br/>
+    <input id="deletes" type="button" value="deletes" /><br/><br/>
+</body>
+</html>

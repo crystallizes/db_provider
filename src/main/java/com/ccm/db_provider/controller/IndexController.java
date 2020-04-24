@@ -18,7 +18,7 @@ public class IndexController {
         Map<String,Object> map = new HashMap<>();
         map.put("name","张三");
         map.put("age",67);
-        System.out.println("333");
+        System.out.println("338");
         System.out.println("729");
         return map;
     }
